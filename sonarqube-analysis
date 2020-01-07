@@ -13,8 +13,6 @@ node{
         }
     }
    stage('Nexus Uploader') {
-       nexusPublisher nexusInstanceId: 'mynexus', 
-       nexusRepositoryId: 'nexus_repo', 
-       packages: [[$class: 'MavenPackage', mavenAssetList: [], mavenCoordinate: [artifactId: 'myweb', groupId: 'in.javahome', packaging: 'war', version: '0.0.7']]]
-   }
+      nexusPublisher nexusInstanceId: 'mynexus', nexusRepositoryId: 'nexus_repo', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/home/anand/.jenkins/workspace/myapp-tpmg/target/myweb-0.0.7-SNAPSHOT.war']], mavenCoordinate: [artifactId: 'myweb', groupId: 'in.javahome', packaging: 'war', version: '0.0.7']]]
+      }
 }
