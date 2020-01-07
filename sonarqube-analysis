@@ -12,4 +12,9 @@ node{
           sh "/opt/maven3/bin/mvn sonar:sonar"
         }
     }
+   stage('Nexus Uploader') {
+       nexusPublisher nexusInstanceId: 'mynexus', 
+       nexusRepositoryId: 'nexus_repo', 
+       packages: [[$class: 'MavenPackage', mavenAssetList: [], mavenCoordinate: [artifactId: 'myweb', groupId: 'in.javahome', packaging: 'war', version: '0.0.7']]]
+   }
 }
